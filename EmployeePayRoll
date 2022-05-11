@@ -147,7 +147,7 @@ function findFulltimeWage(dailyWage){
     }
     console.log("UC7G- Number of days the Employee Worked: " + empDailyWageArr.reduce(totalDayWorked,0));
 
-//UC 6 Arrays and  UC7 Maps
+//UC 6 Arrays and  UC7 Maps UC8
 
 MAX_HRS_IN_MONTH=160;
  Num_OF_Working_Days=20;
@@ -183,7 +183,7 @@ console.log("UC9A- Emp Wage With Arrow: " + "Total Hours : " + totalHours + " To
 let nonWorkingDays =new Array();
 let partWorkingDays=new Array();
 let fullWorkingDays=new Array();
-empDailyHrsMap.forEach((value, key, map) => {
+ empDailyHrsMap.forEach((value, key, map) => {
     if(value == 8) fullWorkingDays.push(key);
     else if(value == 4) partWorkingDays.push(key);
     else nonWorkingDays.push(key);
@@ -191,3 +191,26 @@ empDailyHrsMap.forEach((value, key, map) => {
 console.log("Full Working Days :" +fullWorkingDays);
 console.log("Part Working Days :" +partWorkingDays);
 console.log("Non Working Days : " +nonWorkingDays);
+
+// UC 10- Object Creation 
+
+ totalEmpHrs =0;
+totalWorkingDays=0;
+let empDailyHrsAndWageArr=new Array();
+while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < Num_OF_Working_Days){
+    totalWorkingDays++;
+    let empCheck=Math.floor(Math.random()*10) % 3;
+    let empHrs=getWorkingHours(empCheck);
+    totalEmpHrs += empHrs;
+    empDailyHrsAndWageArr.push(
+        {
+            dayNum:totalWorkingDays,
+            dailyHours:empHrs,
+            dailyWage: calcDailyWage(empHrs),
+            toString(){
+                return '\nDay' + this.dayNum + ' => Working Hours is ' + this.dailyHours + ' And Wage Earned = ' + this.dailyWage
+            },
+            });
+        }
+        console.log("UC10- Showing Daily Hours Worked and Wage Earned: " + empDailyHrsAndWageArr);
+    

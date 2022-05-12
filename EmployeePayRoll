@@ -234,3 +234,32 @@ while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < Num_OF_Working_Days
                          .filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 0)
                          .map(dailyHrsAndWage => dailyHrsAndWage.dayNum);
  console.log("UC 11D NonWorkingDayNums: " + nonWorkingDayNums);                        
+
+ class EmployeePayrollData {
+     //property 
+     id;
+     salary;
+
+     //constructor
+     constructor(id,name,salary){
+         this.id = id;
+         this.salary = salary;
+         this.name = name;
+     }
+
+     //getter and setter method
+     get name() { return this.name; }
+     set name(name) { this._name = name; }
+
+     //method 
+     toString() {
+          return "id=" + this.id + ", name=" + this.name + ", slary=" + this.salary;
+
+    }
+ }
+
+ let employeepayrollData = new EmployeePayrollData(1, "Mark", 30000);
+ console.log(employeepayrollData.toString());
+ employeepayrollData.name = "john";
+ console.log(employeepayrollData.toString());
+ 
